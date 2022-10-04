@@ -97,14 +97,33 @@ driver.get("https://rahulshettyacademy.com/AutomationPractice/")
 #     exc.text_to_be_present_in_element((By.XPATH, '//h2 [starts-with(@id,"h2") and contains(@class,"target-text")]'),
 #                                       "Selenium Webdriver"),
 #     )
-# How to Handle the Mouse Over Feature for the application
+# ****************How to Handle the Mouse Over Feature for the application
 # action_operation = ActionChains(driver)
 # action_operation.move_to_element(driver.find_element(By.XPATH, '//button[(@class="btn btn-primary") and ('
 #                                                                '@id="mousehover")]')).perform()
 # action_operation.move_to_element(driver.find_element(By.LINK_TEXT, 'Top')).click().perform()
 # time.sleep(2)
 #
-#
-
-
+# ************* How to handle double click and single click options for the Actions Class
+# driver.get("https://the-internet.herokuapp.com/")
+# driver.find_element(By.LINK_TEXT, "Context Menu").click()
+# wdw(driver, 100).until(exc.text_to_be_present_in_element((By.LINK_TEXT, "Elemental Selenium"), 'Elemental Selenium'))
+# action = ActionChains(driver)
+# action.context_click(driver.find_element(By.XPATH, '//div[@id="hot-spot"]')).perform()
+# time.sleep(2)
+# driver.switch_to.alert.accept()
+# ************ How to shift between the windows in selenimum
+# driver.find_element(By.XPATH, '//button[@id ="openwindow"]').click()
+# driver.switch_to.window(driver.window_handles[1])
+# print(driver.window_handles[1])
+# time.sleep(2)
+# print(driver.find_element(By.XPATH, '//ul[@class="nav navbar-nav navbar-right"]/li[5]/a').text)
+# ************** How to switch between tabs and windows with the best practice available.
+# driver.implicitly_wait(5)  # Wait needs to be added
+# driver.find_element(By.XPATH, "//button[@id='openwindow']").click()
+# open_window = driver.window_handles[1]  # Update the window
+# driver.find_element(By.XPATH, "//a[@class='btn-style class1 class2']").click()
+# open_tab = driver.window_handles[2]  # Update the tab name
+# driver.switch_to.window(open_tab)  # switch between the tab and windows
+# print(driver.find_element(By.XPATH, '//ul[@class ="navigation clearfix" ]/li[2]/a').text)
 driver.close()
