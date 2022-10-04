@@ -126,4 +126,15 @@ driver.get("https://rahulshettyacademy.com/AutomationPractice/")
 # open_tab = driver.window_handles[2]  # Update the tab name
 # driver.switch_to.window(open_tab)  # switch between the tab and windows
 # print(driver.find_element(By.XPATH, '//ul[@class ="navigation clearfix" ]/li[2]/a').text)
+# ************ How to use the iframe example for the site
+# driver.switch_to.frame(driver.find_element(By.XPATH, '//iframe[@id="courses-iframe"]'))
+# driver.find_element(By.XPATH, '//a[starts-with(@class, "new-navbar-highlighter") and contains(@href,
+#                                                                                      "learning-path")]')
+# driver.switch_to.default_content()
+# driver.find_element(By.XPATH, '//input[@id="checkBoxOption1"]')
+# ************ How to use the get attribute function to get value
+# print(driver.find_element(By.XPATH, '//input[@name ="enter-name"]').get_attribute('placeholder'))
+# driver.find_element(By.XPATH, '//input[@name ="enter-name"]').send_keys("welcome")  # Pass Text
+# print(driver.find_element(By.XPATH, '//input[@name ="enter-name"]').get_attribute('value'))
+
 driver.close()
