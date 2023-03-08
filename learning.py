@@ -3,14 +3,14 @@
 import time
 
 from selenium import webdriver as wd
+from selenium.webdriver.chrome.service import Service as ChromiumService
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.support.ui import WebDriverWait as wdw
-from selenium.webdriver.support import expected_conditions as exc
-from selenium.webdriver import ActionChains
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.utils import ChromeType
 
 driver = wd.Chrome(
-    executable_path="C:\\Users\\KalkiAvatharam\\PycharmProjects\\Selenium_Learning\\chromedriver\\chromedriver.exe")
+        service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
+
 driver.get("https://rahulshettyacademy.com/AutomationPractice/")
 # # ************* Use of CSS Selector for the Program
 # # driver.find_element(By.CSS_SELECTOR, "input[value = 'radio1']").click()
@@ -119,13 +119,13 @@ driver.get("https://rahulshettyacademy.com/AutomationPractice/")
 # time.sleep(2)
 # print(driver.find_element(By.XPATH, '//ul[@class="nav navbar-nav navbar-right"]/li[5]/a').text)
 # ************** How to switch between tabs and windows with the best practice available.
-# driver.implicitly_wait(5)  # Wait needs to be added
-# driver.find_element(By.XPATH, "//button[@id='openwindow']").click()
-# open_window = driver.window_handles[1]  # Update the window
-# driver.find_element(By.XPATH, "//a[@class='btn-style class1 class2']").click()
-# open_tab = driver.window_handles[2]  # Update the tab name
-# driver.switch_to.window(open_tab)  # switch between the tab and windows
-# print(driver.find_element(By.XPATH, '//ul[@class ="navigation clearfix" ]/li[2]/a').text)
+driver.implicitly_wait(5)  # Wait needs to be added
+driver.find_element(By.XPATH, "//button[@id='openwindow']").click()
+open_window = driver.window_handles[1]  # Update the window
+driver.find_element(By.XPATH, "//a[@class='btn-style class1 class2']").click()
+open_tab = driver.window_handles[2]  # Update the tab name
+driver.switch_to.window(open_tab)  # switch between the tab and windows
+print(driver.find_element(By.XPATH, '//ul[@class ="navigation clearfix" ]/li[2]/a').text)
 # ************ How to use the iframe example for the site
 # driver.switch_to.frame(driver.find_element(By.XPATH, '//iframe[@id="courses-iframe"]'))
 # driver.find_element(By.XPATH, '//a[starts-with(@class, "new-navbar-highlighter") and contains(@href,
@@ -137,4 +137,5 @@ driver.get("https://rahulshettyacademy.com/AutomationPractice/")
 # driver.find_element(By.XPATH, '//input[@name ="enter-name"]').send_keys("welcome")  # Pass Text
 # print(driver.find_element(By.XPATH, '//input[@name ="enter-name"]').get_attribute('value'))
 
-driver.close()
+#driver.close()
+

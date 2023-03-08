@@ -23,3 +23,4 @@ def test_case_2():
 
 def test_case_method_1(test_setup):
     print("Test Case Method Result -1 :Pass")
+
