@@ -6,10 +6,9 @@ from selenium import webdriver as wd
 from selenium.webdriver.chrome.service import Service as ChromiumService
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.core.utils import ChromeType
 
 driver = wd.Chrome(
-        service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
+        service=ChromiumService(ChromeDriverManager().install()))
 
 driver.get("https://rahulshettyacademy.com/AutomationPractice/")
 # # ************* Use of CSS Selector for the Program
